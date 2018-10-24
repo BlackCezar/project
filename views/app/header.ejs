@@ -1,0 +1,30 @@
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Добро пожаловать</title>
+    <link rel="stylesheet" href="../assets/css/app.css">
+    <link rel="import" href="../../elements/input-date.ejs">
+
+    <script src="/bower_components/webcomponentsjs/webcomponents-loader.js"></script>
+</head>
+<body>
+        <script type="text/javascript">
+            window.onbeforeunload = function () {
+                //    // do something
+                //    var buttonExit = document.getElementById("myLogoutButton");
+                //    buttonExit.click();
+                alert('вы уверены?');
+            }
+       </script> 
+    <header class="header">
+        <div class="logo"><img src="../../assets//img/logo.png" alt="">myTasknoTe</div>
+        <nav>
+            <a href="/" class="menu__link"> <span class="menu__text">Главная</span></a>
+            <a href="/logout" class="menu__link"> <span class="menu__text">Выйти</span></a>
+            <a href="/me" class="menu__link"> <span class="menu__text"><%= user.name %></span></a>
+        </nav> 
+    </header>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<%- include('header_org')%>
+    <div class="contant">
+        <div class="wrapper">
+            <div class="contant__block">
+                <div class="left_block">
+                    <div class="header_phone"></div>
+                    <div class="left__content">
+                      <div class="slide">
+                          <div class="bt__wrapper">
+                               <div class="bt"></div>
+                           </div>
+                        <div class="hero">
+                            <div class="hero__title">myTasknoTe</div>
+                            <div class="hero__about">Цени свое время, трать его с умом</div>
+                            <a href="/about">
+                                <img src="../assets/img/lamp-2.png" class="hero__lamp" alt="">
+                                <div class="hero__lamp_after"></div>
+                                <div class="btn">Узнать больше</div>
+                            </a>
+                            <div class="hero__about">Цени свое время, трать его с умом</div>
+                        </div>
+                        <div class="bt__wrapper">
+                               <div class="bt"></div>
+                           </div>
+                      </div>
+                      
+                        <div class="sher"></div>
+                    </div>
+                </div>
+                <div class="right_block">
+                    <a href="authh" class="menu__link menu__link_last">
+                        <span class="menu__text">Начать
+                            <div class="line__folder">
+                                <div class="line"></div>
+                            </div>
+                        </span>
+                    </a>
+                    <form action="/authh" method="post">
+                        <h3>Авторизируйтесь<div class="devider"></div></h3>
+                        <input type="email" name="email" placeholder="Ваш email">
+                        <input type="password" name="password" placeholder="Пароль">
+                        <input type="text" name="admin" value="true" hidden>
+                        <div class="devider"></div>
+                        <div class="form_block">
+                            <input type="submit" class="link reg" value="Войти">
+                            <a href="/org/reg" class="reg link">Регистрация</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div> 
+    </div>

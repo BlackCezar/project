@@ -1,0 +1,46 @@
+<%- include('header') %>
+<div class="cont">
+    <div class="left_panel">
+        <form action="">
+            <div class="today"></div>
+            <input-date></input-date>
+        </form>
+    </div>
+    <div class="center_block">
+        <div class="center_block_wrapper">
+            <% if (user_days) { for (user_days of user_days) { %>
+        <a href="/app/<%- user_days._id %>">
+            <div class="day__block">
+                <div class="data"><%= `${user_days.day}.${user_days.month + 1}.${user_days.year}`%></div>
+                <div class="count">кол-во задач: <%= user_days.tasks.length %></div>
+                <div class="desc"><% for(task of user_days.tasks) { %><%- task.task.msg %><% break} if (user_days.tasks.length == 0) { %> Нет задач <%}%></div>
+            </div>
+        </a>
+        <% }} %>
+        </div>
+    </div>
+    <div class="right_panel">
+    </div>
+</div>
+<script
+  src="../../assets/js/jquery-3.3.1.js"></script>
+<script src="../../assets/js/script.js"></script>
+  <script>
+      var day = (new Date()).getDay();
+      var days = ['','Понедельник','Вторник','Среда','Четверг','Пятница','Суббота','Воскресенье'];
+      var j = day;
+      for (var i=1; i<8;i++) { 
+        $(`a:nth-child(${i})`).find('.data').append(`<br> ${days[j]}`);
+        if (j == 7) {
+            j=0;
+        }
+        j++;
+      }
+    
+  </script>
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.0/socket.io.js" crossorigin="anonymous"></script>
+ <script>
+   var socket = io();
+ </script> -->
+</body>
+</html>

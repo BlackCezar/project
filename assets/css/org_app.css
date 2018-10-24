@@ -1,0 +1,149 @@
+* {
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    transition: all 0.2s linear;
+}
+@font-face {
+    font-family: PoiretOne; /* Гарнитура шрифта */
+    src: url(../fonts/PoiretOne-Regular.ttf);
+}
+@font-face {
+    font-family: Exo2-Regular; /* Гарнитура шрифта */
+    src: url(../fonts/Exo2-Regular.ttf);
+}
+@font-face {
+    font-family: Exo2-Light; /* Гарнитура шрифта */
+    src: url(../fonts/Exo2-Light.ttf);
+}
+.org {
+    height: 100vh;
+    font-family: Exo2-Regular;
+    display: flex;
+    overflow: hidden;
+}
+a {
+    text-decoration-line: none;
+    color: unset;
+}
+.org__left_block {
+    min-width: 200px;
+    max-width: 250px;
+    height: 100vh;
+    overflow: hidden;
+    background-color: rgb(230, 247, 230);
+    color: rgb(24, 21, 21);
+    display: flex;
+    flex-direction: column;
+    border-right: 1px solid #bcc2bb; 
+    justify-content: space-between;
+}
+.org__left_block_arrows {
+    text-align: right;
+    padding-right: 10px;
+    width: calc(100% - 10px);
+    font-size: x-large;
+    display: flex;
+    justify-content: flex-end;
+}
+.org__left_block_h3 {
+    width: 100%;
+    text-align: center;
+    color: #675151;
+    font-weight: 300;
+    padding-bottom: 8px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.5);
+    margin-bottom: 10px;
+}
+
+/*  */
+.org__right_block {
+    width: 100%;
+    font-family: PoiretOne;
+    overflow: visible;
+    background-color: #fbfdf9;
+    display: flex;
+    justify-content: space-between;
+}
+
+.count {
+    font-size: small;
+    text-align: right;
+    border-bottom: 1px dashed black;
+    padding-bottom: 5px;
+    padding-top: 3px;
+    margin-bottom: 10px;
+}
+.desc {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden; 
+}
+.col {
+    width: 250px;
+    display: flex;
+    height: 100vh;
+    flex-direction: column;
+    align-items: center;
+    background-color: #eef3ed;
+    border-left: 1px solid #bcc2bb;
+}
+
+.col a:first-child {
+    margin-top: 10px;
+}
+.day__block {
+    margin: 0px 10px 10px 10px;
+    font-family: Exo2-Regular;
+    cursor: pointer;
+    color: rgb(22, 38, 44);
+    background-color: #e9de96;
+    height: 75px;
+    padding: 5px 10px;
+    width: auto;
+}
+.col a:hover .day__block{
+    background-color: rgb(236, 197, 69);
+}
+.tasks__cont {
+    display: flex;
+    flex-direction: column;
+    height: 60vh;
+    position: relative;
+}
+.col_one {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+.more {
+    background-color: #f3f3f8;
+    height: 100%;
+}
+.main_form {
+    height: 100%;
+}
+.more__header {
+    width: 200px;
+    padding-left: 20px;
+    padding-top: 10px;
+    margin-bottom: 10px;
+    padding-bottom: 3px;
+    border-bottom: 1px solid #bcc2bb;
+}
+.row {
+    display: flex;
+}
+.mini_col {
+    height: 100%;
+    margin: 10px;
+}
+.mini_col_header {
+    margin-bottom: 10px;
+}
+.mini_col_content {
+    margin-bottom: 10px;
+}
+input[type = file] {
+    margin-bottom: 10px;
+}

@@ -1,0 +1,166 @@
+<%- include('header')%>
+
+<div class="cont">
+    <div class="left_panel">
+        <form action="">
+            <div class="today"></div>
+            <input-date></input-date>
+        </form>
+    </div>
+    <div class="center_block">
+        <div class="tasks">
+            <div class="tasks__header">
+                <h3>Задачи на <%= `${task.day}.${task.month + 1}.${task.year}`%></h3>
+            </div>
+            <div class="tasks__content">
+            
+                  <% if (task.tasks.length != 0) { for (let i=0; i< task.tasks.length; i++) { %>
+                <div class="tasks__overlay" data-number="<%- task.tasks[i].task_number %>">
+                    <div class="tasks__task">
+                        <div class="options">=
+                            <div class="option__menu">
+                            <div class="option__wrapper">
+                                <div class="option__menu__point">
+                                    <span class="option__menu__header">Пункт 1 </span>
+                                </div>
+                                <div class="option__menu__point">
+                                    <span class="option__menu__header">Пункт 2 </span>
+                                </div>
+                            </div>
+                            </div>
+                        </div>
+                        <div class="status" data-st="<% if (task.tasks[i].task.status == 'task') { %> 0 <% } else {%>1<% }%>" data-id="<%= task.tasks[i].task._id %>" data-day="<%= task._id %>" data-status="<%= task.tasks[i].task.status %>"> 
+                            <div class="status__ok"></div>
+                        </div>
+                        <div class="task__data">
+                            <div class="tasks__task__date">
+                                <%= task.tasks[i].task.hours%>:<%= task.tasks[i].task.minutes%>
+                            </div>
+                            <div class="tasks__task__header">
+                                <%- task.tasks[i].task.msg %>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <% }} else {%>
+                <div class="notasks">Нет задач</div>
+                <%}%>
+            </div>
+        </div>
+        <div class="input">
+            <form method="POST">
+                <input type="text" name="msg" placeholder="Введите заголовок">
+                <input type="text" name="hours" hidden value='<%= new Date().getHours()%>'>
+                <input type="text" name="minutes" hidden value='<%= new Date().getMinutes%>'>
+                <input type="submit" value="" class="input_sb">
+            </form>
+            <i></i>
+        </div>
+    </div>
+    <div class="right_panel">
+
+    </div>
+</div>
+<script
+  src="../../assets/js/jquery-3.3.1.js"></script>
+<script src="../../assets/js/jquery-ui.min.js"></script>
+  <script>
+ $( function() {
+     let before_tasks = [];
+     for (let i=0; i< $('.tasks__content').children().length; i++) {
+        before_tasks[i] = $('.tasks__content').children()[i].dataset.number;
+     }
+     console.log(before_tasks);
+    $( ".tasks__content" ).sortable({opacity: 0.7,  update: function(event, ui) { 
+        let tasks = $(this).children();
+        for (let i=0; i< tasks.length; i++) {
+            console.log(tasks[i].dataset.number);
+        }
+     }});
+
+    $( ".tasks__content" ).disableSelection();
+  } );
+
+        
+          $('form').submit(function(e){
+              e.preventDefault();
+            
+              $.ajax({
+                  type: 'POST',
+                  data:  $('form').serializeArray(),
+                  dataType: 'json',
+                  success: function(task) {
+                      console.log(task);
+                    var time = new Date().getHours() + ':' + new Date().getMinutes();
+                    $('.tasks__content').append(`<div class="tasks__overlay" data-number="${task.number}">
+                    <div class="tasks__task">
+                        <div class="options">=
+                            <div class="option__menu">
+                            <div class="option__wrapper">
+                                <div class="option__menu__point">
+                                    <span class="option__menu__header">Пункт 1 </span>
+                                </div>
+                                <div class="option__menu__point">
+                                    <span class="option__menu__header">Пункт 2 </span>
+                                </div>
+                            </div>
+                            </div>
+                        </div>
+                        <div class="status" data-st="" data-id="" data-day="" data-status=""> 
+                            <div class="status__ok"></div>
+                        </div>
+                        <div class="task__data">
+                            <div class="tasks__task__date">
+                               ${time}
+                            </div>
+                            <div class="tasks__task__header">
+                               ${task.task.msg}
+                            </div>
+                        </div>
+                    </div>
+                </div>`);
+                    $('.notasks').remove();
+                    $('input').val('');
+                  }
+              });
+              
+          })
+
+$('.status').on('click', function() {
+    if ($(this).data().st == 1) {
+         $(this).find('.status__ok').fadeOut('fast');
+         $.ajax({
+            type: 'POST',
+            data: $(this).data(),
+            dataType: 'json',
+            success: function (task) {
+                console.log('ok');
+            },
+            url: '/change_status'
+        });
+         this.dataset.st = 0;
+    } else {
+        $(this).find('.status__ok').fadeIn('fast');
+        $.ajax({
+            type: 'POST',
+            data: $(this).data(),
+            dataType: 'json',
+            success: function (task) {
+                console.log('ok');
+            },
+            url: '/change_status'
+        });
+        this.dataset.st = 1;
+    }
+});
+    $('.status').each(function() {
+
+        if ($(this).data().status!= 'task') {
+            $(this).find('.status__ok').fadeToggle('fast');
+        }
+    });
+
+        
+  </script>
+</body>
+</html> 

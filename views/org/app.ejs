@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title><%= title %></title>
+    <link rel="stylesheet" href="../../assets/css/org_app.css">
+    <link rel="stylesheet" href="../../assets/css/font-awesome.min.css">
+</head>
+<body>
+   <div class="org">
+       <div class="org__left_block">
+           <div class="org__left_block_content">
+               <%- include('elements/find.html') %>
+               <h3 class="org__left_block_h3">myTasknoTe </h3>
+               <%- include('elements/menu.html') %>
+           </div>
+           <div class="org__left_block_arrows">
+                <i class="fa fa-arrow-circle-left fa-fw" id="left_button" onclick="go_left()"></i>
+                <i class="fa fa-arrow-circle-right fa-fw" id="right_button" onclick="go_right()"></i>
+           </div>
+       </div>
+    <div class="org__right_block">
+        <%- include('elements/mytasks') %>
+    </div>
+   </div>
+    
+   <script src="../../assets/js/org_app.js"></script>
+   <script>
+       right_button.style.display = 'none';
+   function go_left() {
+        console.log(document.querySelectorAll('.text'));
+        document.querySelectorAll('.text').forEach((elements) => {
+            elements.style.opacity = 0;
+            elements.style.width = 0;
+            elements.style.display = "none";
+        })
+        document.querySelectorAll(".menu__item_link").forEach((el) => { el.style.width = 0;})
+        document.querySelectorAll(".menu__me").forEach((el) => { el.style.padding = '10px 0px 10px 10px';})
+        document.querySelectorAll(".menu__item_header").forEach((el) => { el.style.padding = '10px';})
+        document.querySelectorAll(".org__left_block").forEach((el) => { el.style.width = '42px'; el.style.minWidth = 0;});
+        document.querySelector(".org__left_block_h3").style.display = 'none';
+        let el = document.querySelector(".fa-search");
+        el.style.padding = '5.5px 11.5px 5.5px 6.5px';
+        el.style.margin = '6px 1px 0px 0px';
+        search.setAttribute('onclick', 'go_right()');
+        right_button.style.display = 'block';
+        left_button.style.display = 'none';
+    }
+    function go_right() {
+            console.log(document.querySelectorAll('.text'));
+            document.querySelectorAll(".org__left_block").forEach((el) => { el.style.width = '100%'; el.style.minWidth = '200px'; });
+            document.querySelectorAll(".menu__me").forEach((el) => { el.style.padding = '10px 0px 10px 5px'; });
+            document.querySelector(".org__left_block_h3").style.display = 'block';
+            document.querySelectorAll(".menu__item_header").forEach((el) => { el.style.padding = '10px 5px'; });
+            document.querySelectorAll(".menu__item_link").forEach((el) => { el.style.width = 'unset'; });
+            document.querySelectorAll('.text').forEach((elements) => {
+                elements.style.opacity = 1;
+                elements.style.width = '100%';
+                elements.style.display = "inline";
+            })
+            let el = document.querySelector(".fa-search");
+            el.style.padding = '5.5px 6.5px 5.5px 6.5px';
+            el.style.margin = '6px 1px 0px 0px';
+            search.setAttribute('onclick', '');
+            right_button.style.display = 'none';
+            left_button.style.display = 'block';
+        }
+    
+    </script>
+
+
+
+</body>
+</html>

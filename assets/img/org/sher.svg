@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:osb="http://www.openswatchbook.org/uri/2009/osb"
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   id="svg2"
+   version="1.0"
+   viewBox="0 0 82 82"
+   sodipodi:docname="sher.svg"
+   inkscape:version="0.92.3 (2405546, 2018-03-11)">
+  <defs
+     id="defs9">
+    <linearGradient
+       id="linearGradient821"
+       osb:paint="solid">
+      <stop
+         style="stop-color:#464684;stop-opacity:1;"
+         offset="0"
+         id="stop819" />
+    </linearGradient>
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient821"
+       id="linearGradient823"
+       x1="252.4"
+       y1="36.4841"
+       x2="334.4"
+       y2="36.4841"
+       gradientUnits="userSpaceOnUse" />
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath830">
+      <use
+         x="0"
+         y="0"
+         xlink:href="#g826"
+         id="use832"
+         width="100%"
+         height="100%" />
+    </clipPath>
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient821"
+       id="linearGradient826"
+       gradientUnits="userSpaceOnUse"
+       x1="252.4"
+       y1="36.4841"
+       x2="334.4"
+       y2="36.4841" />
+  </defs>
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1366"
+     inkscape:window-height="745"
+     id="namedview7"
+     showgrid="false"
+     inkscape:zoom="2.0350878"
+     inkscape:cx="193.09512"
+     inkscape:cy="160.50568"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="g828"
+     inkscape:measure-start="151.492,38.5009"
+     inkscape:measure-end="151.492,263.578" />
+  <g
+     id="g3518"
+     transform="translate(-252.4 4.5158)"
+     style="fill:#5599ff;stroke:url(#linearGradient823);stroke-opacity:1">
+    <g
+       id="g819">
+      <g
+         id="g828"
+         clip-path="url(#clipPath830)">
+        <g
+           inkscape:label="Clip"
+           id="g826"
+           inkscape:export-xdpi="96.099998"
+           inkscape:export-ydpi="96.099998"
+           style="stroke:url(#linearGradient826)"
+           transform="matrix(3.75,0,0,3.7500094,-696.84999,-210.33171)">
+          <path
+             id="path855"
+             style="fill:#d49506;fill-opacity:1;stroke:none;stroke-width:1.01280308;stroke-linecap:butt;stroke-opacity:1"
+             d="m 323.39999,36.4842 a 30,30 0 0 1 -30,30 30,30 0 0 1 -30,-30 30,30 0 0 1 30,-30.0000005 30,30 0 0 1 30,30.0000005 z m -29.99999,-40 c -2.74,0 -5.41,0.2872 -8,0.8125 v 6.1875 c -3.47,0.8389 -6.72,2.1847 -9.68,4 l -4.38,-4.375 c -2.24,1.4862 -4.29,3.2298 -6.19,5.125 -1.89,1.8948 -3.64,3.9448 -5.12,6.1878 l 4.37,4.375 c -1.81,2.967 -3.16,6.212 -4,9.687 h -6.18 c -0.53,2.585 -0.82,5.261 -0.82,8 0,2.739 0.29,5.415 0.82,8 h 6.18 c 0.84,3.475 2.19,6.72 4,9.688 l -4.37,4.375 c 1.48,2.242 3.23,4.292 5.12,6.187 1.9,1.895 3.95,3.639 6.19,5.125 l 4.38,-4.375 c 2.96,1.816 6.21,3.161 9.68,4 v 6.188 c 2.59,0.525 5.26,0.812 8,0.812 2.74,0 5.42,-0.287 8,-0.812 v -6.188 c 3.48,-0.839 6.72,-2.184 9.69,-4 l 4.38,4.375 c 2.24,-1.486 4.29,-3.23 6.18,-5.125 1.9,-1.895 3.64,-3.945 5.13,-6.187 l -4.38,-4.375 c 1.82,-2.968 3.16,-6.213 4,-9.688 h 6.19 c 0.53,-2.585 0.81,-5.261 0.81,-8 0,-2.739 -0.28,-5.415 -0.81,-8 h -6.19 c -0.84,-3.475 -2.18,-6.72 -4,-9.687 l 4.38,-4.375 c -1.49,-2.243 -3.23,-4.293 -5.13,-6.1878 -1.89,-1.8952 -3.94,-3.6388 -6.18,-5.125 l -4.38,4.375 c -2.97,-1.8153 -6.21,-3.1611 -9.69,-4 v -6.1875 c -2.58,-0.5253 -5.26,-0.8125 -8,-0.8125 z"
+             inkscape:connector-curvature="0" />
+        </g>
+      </g>
+    </g>
+  </g>
+  <metadata
+     id="metadata4">
+    <rdf:RDF>
+      <cc:Work>
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <cc:license
+           rdf:resource="http://creativecommons.org/publicdomain/zero/1.0/" />
+        <dc:publisher>
+          <cc:Agent
+             rdf:about="http://openclipart.org/">
+            <dc:title>Openclipart</dc:title>
+          </cc:Agent>
+        </dc:publisher>
+        <dc:title>Cog, cogwheel, gear, Zahnrad</dc:title>
+        <dc:date>2009-12-21T20:11:31</dc:date>
+        <dc:description>cog made as an icon for http://freegamedev.net but not used</dc:description>
+        <dc:source>https://openclipart.org/detail/28703/cog-cogwheel-gear-zahnrad-by-qubodup</dc:source>
+        <dc:creator>
+          <cc:Agent>
+            <dc:title>qubodup</dc:title>
+          </cc:Agent>
+        </dc:creator>
+        <dc:subject>
+          <rdf:Bag>
+            <rdf:li>cartoon</rdf:li>
+            <rdf:li>cog</rdf:li>
+            <rdf:li>cogwheel</rdf:li>
+            <rdf:li>eisen</rdf:li>
+            <rdf:li>gear</rdf:li>
+            <rdf:li>graphic</rdf:li>
+            <rdf:li>grau</rdf:li>
+            <rdf:li>gray</rdf:li>
+            <rdf:li>grey</rdf:li>
+            <rdf:li>iron</rdf:li>
+            <rdf:li>mechanical</rdf:li>
+            <rdf:li>mechanik</rdf:li>
+            <rdf:li>mechanisch</rdf:li>
+            <rdf:li>mechanism</rdf:li>
+            <rdf:li>metal</rdf:li>
+            <rdf:li>outline</rdf:li>
+            <rdf:li>simple</rdf:li>
+            <rdf:li>svgz</rdf:li>
+            <rdf:li>unchecked</rdf:li>
+            <rdf:li>zahnrad</rdf:li>
+          </rdf:Bag>
+        </dc:subject>
+      </cc:Work>
+      <cc:License
+         rdf:about="http://creativecommons.org/publicdomain/zero/1.0/">
+        <cc:permits
+           rdf:resource="http://creativecommons.org/ns#Reproduction" />
+        <cc:permits
+           rdf:resource="http://creativecommons.org/ns#Distribution" />
+        <cc:permits
+           rdf:resource="http://creativecommons.org/ns#DerivativeWorks" />
+      </cc:License>
+    </rdf:RDF>
+  </metadata>
+</svg>

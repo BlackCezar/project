@@ -1,0 +1,142 @@
+<div class="col_one">
+    <form method="POST" data-url='/org/app/<%- user_days[0]._id %>' class="main_form">
+        <div class="tasks__cont"><%- include('tasks') %></div>
+        <div class="more">
+            <div class="more__header">
+                <h3>Подробнее о задаче</h3>
+            </div>
+            <div class="more__content">
+                <div class="row">
+                    <div class="mini_col">
+                        <div class="mini_col_header">
+                            Добавить чек-лист
+                        </div>
+                        <div class="mini_col_content">
+                            <button class="btn">Добавить</button>
+                        </div>
+                    </div>
+                    <div class="mini_col">
+                        <div class="mini_col_header">
+                            Добавить особый статус к задаче
+                        </div>
+                        <div class="mini_col_content">
+                            <select name="status">
+                                <option value="">Важный</option>
+                                <option value="">Мой статус</option>
+                            </select>
+                        </div>
+                        <div class="mini_col_header">
+                            Прикрепить файлы
+                        </div>
+                        <div class="mini_col_content" id="files">
+                            <input type="file" name="files" onclick="duplicate()">
+                        </div>
+                    </div>
+                    <div class="mini_col">
+                        <div class="mini_col_header">
+                            Добавить описание
+                        </div>
+                        <div class="mini_col_content">
+                            <textarea name="more" id="" cols="30" rows="10"></textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+
+<div class="col">
+    <% if (user_days) { for (user_days of user_days) { %>
+        <a href="/org/app/<%- user_days._id %>" class="chooseDay" >
+            <div class="day__block">
+                <div class="data">
+                    <%= `${user_days.day}.${user_days.month + 1}.${user_days.year}`%>
+                </div>
+                <div class="count">кол-во задач:<span>
+                    <%= user_days.tasks.length %>
+                    </span>
+                </div>
+                <div class="desc">
+                    <% for(task of user_days.tasks) { %>
+                        <%- task.task.msg %>
+                            <% break} if (user_days.tasks.length == 0) { %> Нет задач
+                                <%}%>
+                </div>
+            </div>
+        </a>
+        <% }} %>
+</div>
+<script>
+    function duplicate() {
+        let item = document.createElement('input');
+        item.type = 'file';
+        item.name = 'files';
+        item.setAttribute('onclick', 'duplicate()');
+        console.log(item);
+        files.appendChild(item);
+    }
+    console.log(document.querySelectorAll('form')[1].dataset.url);
+        document.querySelectorAll('.chooseDay').forEach( function (elem) {
+            elem.addEventListener('click', (event)=> {
+                event.preventDefault();
+                $.ajax({
+                    type: 'GET',
+                    data: { '_id': '<%= user._id %>' },
+                    dataType: 'json',
+                    url: elem.href,
+                    success: function (data){
+                        if (data.tasks.length == 0) {
+                         document.getElementById('tasks__content').innerHTML = '<div class="no_tasks">Задач нет</div>';
+                        } else {
+                            createTask(data);}
+                        }
+                });
+            })
+        })
+    function createTask(task) { 
+            document.querySelectorAll('form')[1].dataset.url = '/app/' + task._id;
+            document.getElementById('tasks__content').innerHTML = '';
+            task.tasks.forEach((task) => {
+                $('.tasks__content').append(`<div class="tasks__overlay" data-number="${task.task_number}">
+                    <div class="tasks__task">
+                            <div class="options">=
+                                <div class="option__menu">
+                                <div class="option__wrapper">
+                                    <div class="option__menu__point">
+                                        <span class="option__menu__header">Пункт 1 </span>
+                                    </div>
+                                    <div class="option__menu__point">
+                                        <span class="option__menu__header">Пункт 2 </span>
+                                    </div>
+                                </div>
+                                </div>
+                            </div>
+                            <div class="status" data-st="" data-id="" data-day="" data-status=""> 
+                                <div class="status__ok"></div>
+                            </div>
+                            <div class="task__data">
+                                <div class="tasks__task__date">
+                                   ${task.task.hours}:${task.task.minutes}
+                                </div>
+                                <div class="tasks__task__header">
+                                   ${task.task.msg}
+                                </div>
+                            </div>
+                        </div></div>`);
+            });
+     }
+    var day = (new Date()).getDay();
+        var days = ['', 'Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб', 'Вс'];
+        var j = day;
+        for (var i = 1; i < 8; i++) {
+            if (document.querySelector('.col').children[i - 1].children[0].children[0]) {
+                document.querySelector('.col').children[i - 1].children[0].children[0].textContent += days[j];
+            }
+            if (j == 7) {
+                j = 0;
+            }
+            j++;
+        }
+
+</script>

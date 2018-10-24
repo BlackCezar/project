@@ -1,0 +1,98 @@
+<style media="screen">
+    .menu__me {
+        padding: 10px 0px 10px 5px;
+        width: calc(100% - 5px);
+        background-color: rgba(147, 214, 161, 0.34);
+    }
+    .menu__me:hover {
+        background-color: rgb(113, 223, 137);
+        color: #fafafa;
+    }
+    .menu ul {
+        list-style-type: none;
+    }
+    .menu__item_header {
+        color: rgba(0, 0, 0, 0.9) !important;
+        padding: 10px 5px;
+        background-color: rgba(236, 197, 69, 0.5);
+    }
+    .menu__item_header:hover {
+        background-color: rgb(236, 197, 69);
+        color: #fafafa !important;
+    }
+    .menu__items_content {
+       padding-left: 10px;
+    }
+    .menu__item_link {
+        color: rgba(0, 0, 0, 0.5) !important;
+        padding: 2.5px 0;
+    }
+    .menu__item_link:hover {
+        color: rgba(0, 0, 0, 0.7) !important;
+    }
+    .text {
+        transition: all 0.4s linear;
+    }
+</style>
+<main class="menu">
+    <div class="menu__body">
+        <a href="#">
+            <div class="menu__me">
+                <i class="fa fa-user-circle fa-fw" ></i><span class="text"> Моя страница</span>
+            </div>
+        </a>
+        <ul class="menu__items_content">
+            <a href="#">
+                <li class="menu__item_link">
+                    <i class="fa fa-envelope-o  fa-fw"></i><span class="text"> Сообщения</span></li>
+            </a>
+            <a href="#">
+                <li class="menu__item_link">
+                    <i class="fa fa-bell  fa-fw"></i><span class="text"> Оповещения</span></li>
+            </a>
+            <a href="#">
+                <li class="menu__item_link">
+                    <i class="fa fa-wechat  fa-fw"></i><span class="text"> Чат организации</span></li>
+            </a>
+            <a href="#">
+                <li class="menu__item_link">
+                    <i class="fa fa-edit  fa-fw"></i><span class="text"> Редактировать данные</span></li>
+            </a>
+        </ul>
+
+        <ul class="menu__items">
+            <a href="#"><li class="menu__item_header"><i class="fa fa-copyright  fa-fw"></i><span class="text"> Моя организация</span></li></a>
+            <ul class="menu__items_content">
+                <a href="#"><li class="menu__item_link"><i class="fa fa-vcard  fa-fw"></i><span class="text"> Основные данные</span></li></a>
+                <a href="#"><li class="menu__item_link"><i class="fa fa-users  fa-fw"></i><span class="text"> Структура</span></li></a>
+                <a href="#"><li class="menu__item_link"><i class="fa fa-cog  fa-fw"></i><span class="text"> Параметры организации</span></li></a>
+            </ul>
+            <a href="#">
+                <li class="menu__item_header">
+                    <i class="fa fa-tasks  fa-fw"></i><span class="text"> Мои задачи</span></li>
+            </a>
+            <ul class="menu__items_content">
+                <a href="#">
+                    <li class="menu__item_link">
+                        <i class="fa fa-square-o  fa-fw"></i><span class="text"> Не завершенные</span></li>
+                </a>
+                <a href="#">
+                    <li class="menu__item_link">
+                        <i class="fa fa-check-square-o  fa-fw"></i><span class="text"> Завершенные</span></li>
+                </a>
+                <a href="#">
+                    <li class="menu__item_link">
+                        <i class="fa fa-warning  fa-fw"></i><span class="text"> Важные</span></li>
+                </a>
+                <a href="#">
+                    <li class="menu__item_link">
+                        <i class="fa fa-file  fa-fw"></i><span class="text"> Документы</span></li>
+                </a>
+            </ul>
+            <a href="#">
+                <li class="menu__item_header">
+                    <i class="fa fa-wrench  fa-fw"></i><span class="text"> Настройки</span></li>
+            </a>
+        </ul>
+    </div>
+</main>

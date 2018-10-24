@@ -1,0 +1,268 @@
+<% let task = user_days[0].tasks %>
+<style>
+    .tasks__header {
+        background-color: rgb(215, 221, 214);
+        padding: 5px;
+        width: auto;
+        text-align: center;
+    }
+    .tasks__content {
+        display: flex;
+        flex-direction: column;
+    }
+    .options {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    text-align: center;
+    color: #444444;
+    padding: 1.5px 10px;
+    cursor: pointer;
+    font-size: xx-large;
+    width: auto;
+}
+.option__menu {
+    display: none;
+    top: 0;
+    z-index: 3;
+    position: relative;
+    right: 10px;
+    width: 0;
+}
+.option__wrapper {
+    width: 100px;
+    position: absolute;
+    background-color: #f5f5f5;
+    box-shadow: #444444 0px 0px 2px;
+    padding: 3px;
+    right: -36px;
+}
+.options:hover .option__menu{
+    display: block
+}
+.tasks__task:hover {
+    background-color: #c2d2d3c9;
+}
+
+.option__menu__point:hover {
+    color: #5b6483;
+    cursor: pointer;
+}
+.input_sb {
+    display: none;
+}
+
+.option__menu__point {
+    font-size: 0.5em;
+}
+.status {
+    width: 17px;
+    height: 15px;
+    border: 1px dashed rgb(28, 41, 41);
+    margin: 10px;
+    margin-right: 20px;
+}
+.status__ok {
+    clip-path: polygon(0 50%, 30% 70%, 100% 0, 30% 100%, 0 55%);
+    background-color: darkolivegreen;
+    width: 19px;
+    height: 20px;
+    margin-left: -4px;
+    display: none;
+}
+tasks {
+    width: 100%;
+    height: calc(100% - 80px);
+    background-color: transparent;
+}
+.tasks__task {
+    position: relative;
+    user-select: none;
+    cursor: pointer;
+    padding: 10px;
+    background-color: #f3f3f8;
+    border-bottom: #747373 dashed 1px;
+    display: flex;
+    width: auto;
+}
+.task__data {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    width: unset;
+}
+.tasks__task__date {
+    font-size: small;
+    color: #444444;
+    width: 40px;
+    text-align: center;
+    border-bottom: 1px solid #747373;
+}
+.tasks__task__header {
+    padding-top: 5px;
+}
+.input {
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+}
+.input input {
+    width: calc(100% - 24px);
+    padding: 10px;
+    height: 32px;
+    font-size: 24px;
+    outline-color: rgb(236, 197, 69);
+    color: #444444;
+}
+</style>
+<div class="tasks">
+    <div class="tasks__header">
+        <h3>Задачи на
+            <%= `${user_days[0].day}.${user_days[0].month + 1}.${user_days[0].year}`%>
+        </h3>
+    </div>
+    <div class="tasks__content" id="tasks__content">
+
+        <% if (task.length != 0) { for (let i=0; i< task.length; i++) { %>
+            <div class="tasks__overlay" data-number="<%- task[i].task_number %>">
+                <div class="tasks__task">
+                    <div class="options">=
+                        <div class="option__menu">
+                            <div class="option__wrapper">
+                                <div class="option__menu__point">
+                                    <span class="option__menu__header">Пункт 1 </span>
+                                </div>
+                                <div class="option__menu__point">
+                                    <span class="option__menu__header">Пункт 2 </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="status" data-st="<% if (task[i].task.status == 'task') { %> 0 <% } else {%>1<% }%>" data-id="<%= task[i].task._id %>"
+                        data-day="<%= user_days._id %>" data-status="<%= task[i].task.status %>">
+                        <div class="status__ok"></div>
+                    </div>
+                    <div class="task__data">
+                        <div class="tasks__task__date">
+                            <%= task[i].task.hours%>:<%= task[i].task.minutes%>
+                        </div>
+                        <div class="tasks__task__header">
+                            <%- task[i].task.msg %>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <% }} else {%>
+                <div class="notasks">Нет задач</div>
+                <%}%>
+    </div>
+</div>
+<div class="input">
+        <input type="text" name="msg" placeholder="Введите заголовок">
+        <input type="text" name="hours" hidden value='<%= new Date().getHours()%>'>
+        <input type="text" name="minutes" hidden value='<%= new Date().getMinutes%>'>
+        <input type="submit" value="" class="input_sb">
+    <i></i>
+</div>
+
+<script src="../../../assets/js/jquery-3.3.1.js"></script>
+<script src="../../../assets/js/jquery-ui.min.js"></script>
+<script>
+    // $(function () {
+    //     let before_tasks = [];
+    //     for (let i = 0; i < $('.tasks__content').children().length; i++) {
+    //         before_tasks[i] = $('.tasks__content').children()[i].dataset.number;
+    //     }
+    //     console.log(before_tasks);
+    //     $(".tasks__overlay").sortable({
+    //         opacity: 0.7, update: function (event, ui) {
+    //             let tasks = $(this).children();
+    //             for (let i = 0; i < tasks.length; i++) {
+    //                 console.log(tasks[i].dataset.number);
+    //             }
+    //         }
+    //     });
+
+    //     $(".tasks__overlay").disableSelection();
+    // });
+    $('form').submit(function (e) {
+        e.preventDefault();
+
+        $.ajax({
+            type: 'POST',
+            data: $('form').serializeArray(),
+            dataType: 'json',
+            url: document.querySelectorAll('form')[1].dataset.url,
+            success: function (task) {
+                console.log(task);
+                var time = new Date().getHours() + ':' + new Date().getMinutes();
+                $('.tasks__content').append(`<div class="tasks__overlay" data-number="${task.number}">
+                    <div class="tasks__task">
+                        <div class="options">=
+                            <div class="option__menu">
+                            <div class="option__wrapper">
+                                <div class="option__menu__point">
+                                    <span class="option__menu__header">Пункт 1 </span>
+                                </div>
+                                <div class="option__menu__point">
+                                    <span class="option__menu__header">Пункт 2 </span>
+                                </div>
+                            </div>
+                            </div>
+                        </div>
+                        <div class="status" data-st="" data-id="" data-day="" data-status=""> 
+                            <div class="status__ok"></div>
+                        </div>
+                        <div class="task__data">
+                            <div class="tasks__task__date">
+                               ${time}
+                            </div>
+                            <div class="tasks__task__header">
+                               ${task.task.msg}
+                            </div>
+                        </div>
+                    </div>
+                </div>`);
+                $('.notasks').remove();
+                $('input').val('');
+            }
+        });
+
+    })
+
+    $('.status').on('click', function () {
+        if ($(this).data().st == 1) {
+            $(this).find('.status__ok').fadeOut('fast');
+            $.ajax({
+                type: 'POST',
+                data: $(this).data(),
+                dataType: 'json',
+                success: function (task) {
+                    console.log('ok');
+                },
+                url: '/change_status'
+            });
+            this.dataset.st = 0;
+        } else {
+            $(this).find('.status__ok').fadeIn('fast');
+            $.ajax({
+                type: 'POST',
+                data: $(this).data(),
+                dataType: 'json',
+                success: function (task) {
+                    console.log('ok');
+                },
+                url: '/change_status'
+            });
+            this.dataset.st = 1;
+        }
+    });
+    $('.status').each(function () {
+
+        if ($(this).data().status != 'task') {
+            $(this).find('.status__ok').fadeToggle('fast');
+        }
+    });
+
+
+</script>

@@ -1,0 +1,29 @@
+<style>
+    .find {
+        position: relative;
+        height: 40px;
+    }
+    .find input {
+        position: relative;
+        height: 15px;   
+        width: calc(100% - 14px); 
+        padding: 5px;
+        margin-top: 5px;
+        outline-color: rgb(236, 197, 69);
+    }
+    .fa-search {
+        position: absolute;
+        right: 0;
+        top: 0;
+        padding: 5.5px 6.5px 5.5px 6.5px;
+        margin: 6px 1px 0px 0px;
+        background-color: rgb(236, 197, 69);
+        color: whitesmoke;
+    }
+</style>
+<form action="/find">
+    <div class="find">
+        <input type="text" placeholder="Поиск">
+        <i class="fa fa-search  fa-fw" id="search"></i>
+    </div>
+</form>
